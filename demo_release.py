@@ -8,11 +8,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-i','--img_path', type=str, default='imgs/ansel_adams3.jpg')
 parser.add_argument('--use_gpu', action='store_true', help='whether to use GPU')
 parser.add_argument('-o','--save_prefix', type=str, default='saved', help='will save into this file with {eccv16.png, siggraph17.png} suffixes')
+parser.add_argument('--eccv16_weights', type=str, default='./colorization_release_v2-9b330a0b.pth')
+parser.add_argument('--siggraph17_weights', type=str, default='./siggraph17-df00044c.pth')
 opt = parser.parse_args()
 
 # load colorizers
-colorizer_eccv16 = eccv16(pretrained=True).eval()
-colorizer_siggraph17 = siggraph17(pretrained=True).eval()
+colorizer_eccv16 = eccv16(pretrained=True, weights=opt.eccv16_weights).eval()
+colorizer_siggraph17 = siggraph17(pretrained=True, weights=opt.siggraph17_weights).eval()
 if(opt.use_gpu):
 	colorizer_eccv16.cuda()
 	colorizer_siggraph17.cuda()
