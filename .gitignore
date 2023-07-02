@@ -2,3 +2,4 @@
 /.idea
 *.pth
 *.onnx
+saved_*.png
