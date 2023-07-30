@@ -27,7 +27,6 @@ if __name__ == '__main__':
     colorizer.to(args.device)
 
     model_path = os.path.splitext(args.weights)[0] + '.onnx'
-    print(model_path)
 
     dummy_input = torch.randn(1, 1, 256, 256).to(args.device)
     torch.onnx.export(
