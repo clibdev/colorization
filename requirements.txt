@@ -1,6 +1,6 @@
-torch>=2.0.0
-scikit-image>=0.21.0
-matplotlib>=3.7.0
+torch>=2.4.0
+scikit-image>=0.24.0
+matplotlib>=3.9.0
 
 ### Optional
-# onnx>=1.14.0
+# onnx>=1.16.0
